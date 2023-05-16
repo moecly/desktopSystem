@@ -1,0 +1,149 @@
+QWidget {
+        border-image:url(:/images/bg.png);
+}
+
+QLabel {
+        border-image: none;
+}
+
+QWidget#h_widget0 {
+        background: transparant;
+}
+
+QWidget#h_widget1 {
+        background: transparant;
+}
+
+QWidget#v_widget0 {
+        background: transparant;
+}
+
+QWidget#v_widget1 {
+        border-image:url(:/images/mask.png);
+        background: transparant;
+}
+
+QVideoWidget#video_widget {
+        border: none;
+        border-image:url(:/images/bg.png);
+        background: transparent;
+}
+
+QListWidget#list_widget {
+        color:white;
+        font-size: 15px;
+        border:none;
+        background: "#20ffffff";
+        border-image:none;
+}
+
+QListWidget#list_widget:item:active {
+        background: transparent;
+}
+
+QListWidget#list_widget:item {
+        background: transparent;
+        height:60;
+}
+
+QListWidget#list_widget:item:selected {
+        color:#5edcf3;
+        background: transparent;
+}
+
+QListWidget#list_widget:item:hover {
+        background: transparent;
+        color:#5edcf3;
+        border:none;
+}
+
+QPushButton#btn_play {
+        border-image:url(:/icons/btn_play1.png);
+}
+
+QPushButton#btn_play:hover {
+        border-image:url(:/icons/btn_play2.png);
+}
+
+QPushButton#btn_play:checked {
+        border-image:url(:/icons/btn_pause1.png);
+}
+
+QPushButton#btn_play:checked:hover {
+        border-image:url(:/icons/btn_pause2.png);
+}
+
+QPushButton#btn_next {
+        border-image:url(:/icons/btn_next1.png);
+}
+
+QPushButton#btn_next:hover {
+        border-image:url(:/icons/btn_next2.png);
+}
+
+QPushButton#btn_open_folder {
+        border-image:url(:/icons/no_open.png);
+}
+
+QPushButton#btn_open_folder:checked {
+        border-image:url(:/icons/open.png);
+}
+
+QPushButton#btn_volume_down {
+        border-image:url(:/icons/btn_volumedown1.png);
+}
+
+QPushButton#btn_volume_down:hover {
+        border-image:url(:/icons/btn_volumedown2.png);
+}
+
+QPushButton#btn_volume_up {
+        border-image:url(:/icons/btn_volumeup1.png);
+}
+
+QPushButton#btn_volume_up:hover {
+        border-image:url(:/icons/btn_volumeup2.png);
+}
+
+QSlider#video_slider:handle:horizontal {
+        border-image:url(:/icons/handle.png);
+}
+
+QSlider#video_slider {
+        border-image:none;
+}
+
+QSlider#video_slider:add-page:horizontal {
+        border-image:url(:/images/add_page.png);
+}
+
+QSlider#volume_slider {
+        border-image:none;
+}
+QSlider#volume_slider:handle:horizontal {
+        border-image:url(:/icons/handle.png);
+}
+
+QSlider#volume_slider:handle:horizontal {
+        background:transparent;
+}
+
+QSlider#volumeSlider:add-page:horizontal {
+border-image:url(:/images/add_page.png);
+}
+
+QPushButton#btn_fullscreen {
+        border-image:url(:/icons/btn_fullscreen1.png);
+}
+
+QPushButton#btn_fullscreen:hover {
+        border-image:url(:/icons/btn_fullscreen2.png);
+}
+
+QPushButton#btn_fullscreen:checked {
+        border-image:url(:/icons/btn_screen1.png);
+}
+
+QPushButton#btn_fullscreen:checked:hover {
+        border-image:url(:/icons/btn_screen2.png);
+}
