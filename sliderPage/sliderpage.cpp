@@ -31,16 +31,9 @@ void SliderPage::dataTimerTimeout() {
     topDataLabel->setText(currentData);
 }
 
-void SliderPage::ARMInit() {
-#if __arm__
-    setCursor(Qt::BlankCursor);
-#endif
-}
-
 void SliderPage::layoutInit() {
     this->setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
     this->setAttribute(Qt::WA_TranslucentBackground, true);
-    ARMInit();
 
     topHBoxLayout = new QHBoxLayout();
     topHBoxLayout->setContentsMargins(0, 0, 0, 0);

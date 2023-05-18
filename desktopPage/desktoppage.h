@@ -27,7 +27,6 @@ private:
     QString name;
     void layoutInit();
     void resizeEvent(QResizeEvent *event);
-    void ARMInit();
     int getApplicationLocation(int *row, int *col);
 
 signals:

@@ -48,7 +48,6 @@ private:
     void signalAndSlotInit();
     void desktopPageIndicatorAdd();
     int desktopPageIndicatorDel();
-    void ARMInit();
 
 private slots:
     void scrollerStateChanged(QScroller::State newState);

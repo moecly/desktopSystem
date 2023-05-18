@@ -12,12 +12,6 @@ BrightnessControlPage::BrightnessControlPage(QWidget *parent)
     brightnessControlInit();
 }
 
-void BrightnessControlPage::ARMInit() {
-#if __arm__
-    setCursor(Qt::BlankCursor);
-#endif
-}
-
 void BrightnessControlPage::brightnessControlInit() {
     int value = backlightControl.getCurrentBacklightValue();
     backlightControl.setCurrentBacklightvalue(value);
@@ -28,7 +22,6 @@ void BrightnessControlPage::layoutInit() {
     resize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
 
-    ARMInit();
     slider = new QSlider(Qt::Horizontal);
     slider->setRange(minValue, maxValue);
     slider->setValue(currentValue);

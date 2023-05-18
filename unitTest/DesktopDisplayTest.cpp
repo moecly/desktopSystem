@@ -20,9 +20,16 @@ void videoClickedFunc() {
     w->show();
 }
 
+void ARMInit() {
+#if __arm__
+    QApplication::setOverrideCursor(Qt::BlankCursor);
+#endif
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    ARMInit();
 
     DesktopSystem w;
     desktopSystem = &w;
