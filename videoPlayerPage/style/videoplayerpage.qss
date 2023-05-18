@@ -112,10 +112,10 @@ QSlider#slider1:add-page:horizontal {
 
 QLabel#label0 {
         color: white;
-        font-size: 16px;
+        font-size: 18px;
 }
 
 QLabel#label1 {
         color: white;
-        font-size: 16px;
+        font-size: 18px;
 }
