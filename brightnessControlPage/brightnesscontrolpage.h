@@ -43,6 +43,7 @@ private:
     void resizeEvent(QResizeEvent *event);
     void signalAndSlotInit();
     void brightnessControlInit();
+    void ARMInit();
 
 signals:
 
