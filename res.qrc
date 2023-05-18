@@ -62,5 +62,7 @@
         <file>videoPlayerPage/images/bg.png</file>
         <file>videoPlayerPage/images/mask.png</file>
         <file>videoPlayerPage/style/videoplayerpage.qss</file>
+        <file>videoPlayerPage/icons/btn_back1.png</file>
+        <file>videoPlayerPage/icons/btn_back2.png</file>
     </qresource>
 </RCC>
