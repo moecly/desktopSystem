@@ -10,6 +10,26 @@ QListWidget#listWidget {
         border-image:none;
 }
 
+QListWidget#listWidget:item:active {
+        background: transparent;
+}
+
+QListWidget#listWidget:item {
+        background: transparent;
+        height: 60px;
+}
+
+QListWidget#listWidget:item:selected {
+        color: #5edcf3;
+        background: transparent;
+}
+
+QListWidget#listWidget:item:hover {
+        color: #5edcf3;
+        background: transparent;
+        border: none;
+}
+
 QPushButton#pushButton0 {
         border-image:url(:/videoPlayerPage/icons/btn_play1.png);
 }
