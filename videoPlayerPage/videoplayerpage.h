@@ -84,6 +84,7 @@ public slots:
     void mediaPlayerPositionChanged(qint64 position);
     void videoSliderSliderReleased();
     void listWidgetItemDoubleClicked(QListWidgetItem *item);
+    void listWidgetItemClicked(QListWidgetItem *item);
     void mediaPlaylistCurrentIndexChanged(int index);
     void volumeSliderReleased();
     void volumeDown();

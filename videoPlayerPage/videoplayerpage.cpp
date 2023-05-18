@@ -118,12 +118,24 @@ void VideoPlayerPage::signalAndSlotInit() {
     connect(mediaPlayer, SIGNAL(positionChanged(qint64)), this, SLOT(mediaPlayerPositionChanged(qint64)));
     connect(slider[0], SIGNAL(sliderReleased()), this, SLOT(videoSliderSliderReleased()));
     connect(pushButton[1], SIGNAL(clicked()), this, SLOT(nextVideo()));
-    connect(listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(listWidgetItemDoubleClicked(QListWidgetItem *)));
     connect(mediaPlaylist, SIGNAL(currentIndexChanged(int)), this, SLOT(mediaPlaylistCurrentIndexChanged(int)));
     connect(slider[1], SIGNAL(sliderReleased()), this, SLOT(volumeSliderReleased()));
     connect(pushButton[2], SIGNAL(clicked()), this, SLOT(volumeDown()));
     connect(pushButton[3], SIGNAL(clicked()), this, SLOT(volumeUp()));
     connect(pushButton[4], SIGNAL(clicked()), this, SLOT(exitPage()));
+#if __arm__
+    connect(listWidget, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(listWidgetItemClicked(QListWidgetItem *)));
+#else
+    connect(listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(listWidgetItemDoubleClicked(QListWidgetItem *)));
+#endif
+}
+
+void VideoPlayerPage::listWidgetItemClicked(QListWidgetItem *item) {
+    int index = listWidget->row(item);
+    mediaPlayer->stop();
+    listWidget->setCurrentRow(index);
+    mediaPlaylist->setCurrentIndex(index);
+    mediaPlayer->play();
 }
 
 void VideoPlayerPage::volumeDown() {
