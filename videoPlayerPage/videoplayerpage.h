@@ -22,7 +22,7 @@ class VideoPlayerPage : public QWidget
     Q_OBJECT
 public:
     explicit VideoPlayerPage(QWidget *parent = nullptr);
-    int setVideoFileName(QString videoFileName);
+    void setVideoFilePath(QString videoFilePath);
 
 private:
     /*
@@ -63,16 +63,32 @@ private:
     QVBoxLayout *vBoxLayout;
     QWidget *mainWidget;
 
-    QFile videoFile;
+    QString videoFilePath;
+    QMediaPlayer *mediaPlayer;
+    QMediaPlaylist *mediaPlaylist;
 
     int layoutInit();
     void resizeEvent(QResizeEvent *event);
     void signalAndSlotInit();
+    void mediaInit();
+    void scanVideoDirectory(QString videoFilePath);
 
 signals:
 
 public slots:
-    void selectVideoFileName();
+    void selectVideoFilePath();
+    void playVideo();
+    void nextVideo();
+    void mediaPlayerStateChanged(QMediaPlayer::State newState);
+    void mediaPlayerDurationChanged(qint64 duration);
+    void mediaPlayerPositionChanged(qint64 position);
+    void videoSliderSliderReleased();
+    void listWidgetItemDoubleClicked(QListWidgetItem *item);
+    void mediaPlaylistCurrentIndexChanged(int index);
+    void volumeSliderReleased();
+    void volumeDown();
+    void volumeUp();
+    void exitPage();
 };
 
 #endif // VIDEOPLAYERPAGE_H
