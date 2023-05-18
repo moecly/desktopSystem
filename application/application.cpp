@@ -38,8 +38,11 @@ void Application::layoutInit() {
     label->setAlignment(Qt::AlignCenter);
 
     QPalette palette;
+    QFont font;
+    font.setPixelSize(18);
     palette.setColor(QPalette::WindowText, Qt::white);
     label->setPalette(palette);
+    label->setFont(font);
 }
 
 QString Application::getAppIconUrl() {

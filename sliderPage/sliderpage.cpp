@@ -45,7 +45,10 @@ void SliderPage::layoutInit() {
     topDataLabel->setText("周一 1月 1 00:00:00 0000");
     topHBoxLayout->addWidget(topDataLabel);
     QPalette palette;
+    QFont font;
     palette.setColor(QPalette::WindowText, Qt::white);
+    font.setPixelSize(18);
+    topDataLabel->setFont(font);
     topDataLabel->setPalette(palette);
 
     scrollArea = new QScrollArea(this);
