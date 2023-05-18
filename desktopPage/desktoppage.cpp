@@ -12,7 +12,14 @@ DesktopPage::DesktopPage(QWidget *parent)
     layoutInit();
 }
 
+void DesktopPage::ARMInit() {
+#if __arm__
+    setCursor(Qt::BlankCursor);
+#endif
+}
+
 void DesktopPage::layoutInit() {
+    ARMInit();
     gridLayout = new QGridLayout();
     mainWidget = new QWidget(this);
     mainWidget->setMinimumSize(MIN_WIDTH, MIN_HEIGHT);

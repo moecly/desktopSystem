@@ -18,7 +18,14 @@ void VideoPlayerPage::mediaInit() {
     mediaPlayer->setVolume(slider[1]->value());
 }
 
+void VideoPlayerPage::ARMInit() {
+#if __arm__
+    setCursor(Qt::BlankCursor);
+#endif
+}
+
 int VideoPlayerPage::layoutInit() {
+    ARMInit();
     for (int i = 0; i < 2; i++) {
         hBoxLayout[i] = new QHBoxLayout();
         hBoxLayout[i]->setContentsMargins(0, 0, 0, 0);

@@ -26,5 +26,6 @@ private:
     QWidget *widget;
     void layoutInit();
     void resizeEvent(QResizeEvent *event);
+    void ARMInit();
 };
 #endif // DESKTOPSYSTEM_H

@@ -10,8 +10,15 @@ DesktopSystem::~DesktopSystem()
 {
 }
 
+void DesktopSystem::ARMInit() {
+#if __arm__
+    setCursor(Qt::BlankCursor);
+#endif
+}
+
 // TODO
 void DesktopSystem::layoutInit() {
+    ARMInit();
     this->setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
     this->resize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 

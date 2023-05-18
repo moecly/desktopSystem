@@ -72,6 +72,7 @@ private:
     void signalAndSlotInit();
     void mediaInit();
     void scanVideoDirectory(QString videoFilePath);
+    void ARMInit();
 
 signals:
 
