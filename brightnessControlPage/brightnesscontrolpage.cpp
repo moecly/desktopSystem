@@ -35,9 +35,13 @@ void BrightnessControlPage::layoutInit() {
 
     additionBrightnessPushButton = new QPushButton();
     additionBrightnessPushButton->setText("+");
+    additionBrightnessPushButton->setMinimumHeight(40);
+    additionBrightnessPushButton->setMaximumHeight(40);
 
     reduceBrightnessPushButton = new QPushButton();
     reduceBrightnessPushButton->setText("-");
+    reduceBrightnessPushButton->setMinimumHeight(40);
+    reduceBrightnessPushButton->setMaximumHeight(40);
     middleHBoxLayout->addWidget(reduceBrightnessPushButton);
     middleHBoxLayout->addWidget(slider);
     middleHBoxLayout->addWidget(additionBrightnessPushButton);
@@ -50,6 +54,8 @@ void BrightnessControlPage::layoutInit() {
     exitPushButton->setText("exit");
     exitPushButton->setMinimumWidth(80);
     exitPushButton->setMaximumWidth(80);
+    exitPushButton->setMinimumHeight(40);
+    exitPushButton->setMaximumHeight(40);
 
     exitHBoxLayout = new QHBoxLayout();
     exitHBoxLayout->setAlignment(Qt::AlignCenter);
