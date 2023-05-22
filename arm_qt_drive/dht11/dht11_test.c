@@ -21,13 +21,16 @@ int main(int argc, char **argv) {
         return -1;
     }
     
-    if (read(fd, &val, 4) == 4) {
-        printf("value %d\n", val);
-        humidity_f = (val >> 24) & 0xff;
-        humidity_b = (val >> 16) & 0xff;
-        temp_f = (val >> 8) & 0xff;
-        temp_b = (val) & 0xff;
-        printf("temp = %d.%d, humidity = %d.%d\n", temp_f, temp_b, humidity_f, humidity_b);
+    while (1)  {
+        if (read(fd, &val, 4) == 4) {
+            printf("value %d\n", val);
+            humidity_f = (val >> 24) & 0xff;
+            humidity_b = (val >> 16) & 0xff;
+            temp_f = (val >> 8) & 0xff;
+            temp_b = (val) & 0xff;
+            printf("temp = %d.%d, humidity = %d.%d\n", temp_f, temp_b, humidity_f, humidity_b);
+            break;
+        }
     }
 
     close(fd);
