@@ -169,14 +169,6 @@ static ssize_t dht11_write(struct file *file, const char __user *buf, size_t siz
 
 static int dht11_open(struct inode *node, struct file *file) {
     printk("%s %s %d\n", __FILE__, __FUNCTION__, __LINE__);
-    /* 
-     * 步骤一:
-     *  DHT11 上电后（DHT11 上电后要等待 1S 以越过不稳定状态在此期间不能发送任何指令），测试环境
-     *  温湿度数据，并记录数据，同时 DHT11 的 DATA 数据线由上拉电阻拉高一直保持高电平；此时 DHT11 的
-     *  DATA 引脚处于输入状态，时刻检测外部信号。
-     */
-    gpiod_direction_input(dht11.gpiod);
-    mdelay(1000);
     return 0;
 }
 
@@ -224,6 +216,14 @@ static int dht11_drv_probe(struct platform_device *pdev) {
         goto err_class_create;
         
     device_create(dht11_class, NULL, MKDEV(major, 0), NULL, "dht11");
+
+    /* 
+     * 步骤一:
+     *  DHT11 上电后（DHT11 上电后要等待 1S 以越过不稳定状态在此期间不能发送任何指令），测试环境
+     *  温湿度数据，并记录数据，同时 DHT11 的 DATA 数据线由上拉电阻拉高一直保持高电平；此时 DHT11 的
+     *  DATA 引脚处于输入状态，时刻检测外部信号。
+     */
+    gpiod_direction_input(dht11.gpiod);
     
     return 0;
 
