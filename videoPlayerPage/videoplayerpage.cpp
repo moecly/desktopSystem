@@ -19,6 +19,8 @@ void VideoPlayerPage::mediaInit() {
 }
 
 int VideoPlayerPage::layoutInit() {
+    setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
+
     for (int i = 0; i < 2; i++) {
         hBoxLayout[i] = new QHBoxLayout();
         hBoxLayout[i]->setContentsMargins(0, 0, 0, 0);

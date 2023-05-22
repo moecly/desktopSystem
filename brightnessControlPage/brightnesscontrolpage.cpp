@@ -19,7 +19,6 @@ void BrightnessControlPage::brightnessControlInit() {
 }
 
 void BrightnessControlPage::layoutInit() {
-    resize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
 
     slider = new QSlider(Qt::Horizontal);
