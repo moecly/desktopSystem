@@ -1,0 +1,1 @@
+cmd_/linux/arm_qt_drive/dht11/dht11_drv.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /linux/arm_qt_drive/dht11/dht11_drv.ko /linux/arm_qt_drive/dht11/dht11_drv.o /linux/arm_qt_drive/dht11/dht11_drv.mod.o ;  true

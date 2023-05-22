@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../bsp/imx-linux4.9.88"
+		},
+		{
+			"path": "../qt"
+		}
+	],
+	"settings": {}
+}
