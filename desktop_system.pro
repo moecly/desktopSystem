@@ -38,6 +38,7 @@ include(humanDetectionPage/humandetectionpage.pri)
 include(lightControlPage/lightcontrolPage.pri)
 include(tempAndHumidityPage/tempandhumiditypage.pri)
 include(lightControl/lightcontrol.pri)
+include(temperatureHumiditySensor/temperaturehumiditysensor.pri)
 
 RESOURCES += \
     res.qrc

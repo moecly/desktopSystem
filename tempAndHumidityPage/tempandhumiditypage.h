@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <utils/common.h>
 #include <QPushButton>
+#include <temperatureHumiditySensor/temperaturehumiditysensor.h>
 
 class TempAndHumidityPage : public QWidget
 {
@@ -27,15 +28,19 @@ private:
     QWidget *hWidget;
     QWidget *mainWidget;
     QVBoxLayout *mainVBoxLayout;
+    QPushButton *refreshPushButton;
     QPushButton *exitPushButton;
+    TemperatureHumiditySensor tHSensor;
 
     void layoutInit();
+    void refreshTemperatureHumidityData();
     void paintEvent(QPaintEvent *event);
     void signalAndSlotInit();
 signals:
 
 public slots:
     void exitPushButtonClick();
+    void refreshPushButtonClick();
 };
 
 #endif // TEMPANDHUMIDITYPAGE_H
