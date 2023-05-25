@@ -34,6 +34,9 @@ include(application/application.pri)
 include(brightnessControlPage/brightnesscontrolpage.pri)
 include(backlightControl/backlightcontrol.pri)
 include(videoPlayerPage/videoplayerpage.pri)
+include(humanDetectionPage/humandetectionpage.pri)
+include(lightControlPage/lightcontrolPage.pri)
+include(tempAndHumidityPage/tempandhumiditypage.pri)
 
 RESOURCES += \
     res.qrc
