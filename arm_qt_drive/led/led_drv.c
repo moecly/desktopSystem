@@ -31,13 +31,13 @@ typedef struct led_object {
 led_object led;
 
 ssize_t led_read(struct file *file, char __user *buf, size_t size, loff_t *ppos) {
-    int value;
+    char value;
     int ret;
     printk("%s %s %d\n", __FILE__, __FUNCTION__, __LINE__);
     value = gpiod_get_value(led.gdesc);
     printk("read value = %d\n", value);
-    ret = copy_to_user(buf, &value, 4);
-    return 0;
+    ret = copy_to_user(buf, &value, 1);
+    return 1;
 }
 
 ssize_t led_write(struct file *file, const char __user *buf, size_t size, loff_t *ppos) {

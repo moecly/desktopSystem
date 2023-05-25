@@ -8,7 +8,7 @@
 int main(int argc, char **argv) {
     int fd;
     char status;
-    int read_status;
+    char read_status;
     if (argc != 3) {
         printf("argc != 3");
         return -1;
@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
         return -1;
     }
     
-    read(fd, &read_status, 4);
+    read(fd, &read_status, 1);
     printf("read status = %d\n", read_status);
         
     if (strcmp(argv[2], "on") == 0) {

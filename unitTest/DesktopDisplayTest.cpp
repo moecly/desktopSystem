@@ -3,6 +3,8 @@
 #include <QApplication>
 #include <brightnessControlPage/brightnesscontrolpage.h>
 #include <videoPlayerPage/videoplayerpage.h>
+#include <tempAndHumidityPage/tempandhumiditypage.h>
+#include <lightControlPage/lightcontrolpage.h>
 
 #if 1
 
@@ -16,6 +18,18 @@ void lightClickedFunc() {
 
 void videoClickedFunc() {
     VideoPlayerPage *w = new VideoPlayerPage();
+    w->setGeometry(desktopSystem->geometry());
+    w->show();
+}
+
+void tempAndHumidityClickedFunc() {
+    TempAndHumidityPage *w = new TempAndHumidityPage();
+    w->setGeometry(desktopSystem->geometry());
+    w->show();
+}
+
+void lightControlClickedFunc() {
+    LightControlPage *w = new LightControlPage();
     w->setGeometry(desktopSystem->geometry());
     w->show();
 }
@@ -39,8 +53,8 @@ int main(int argc, char *argv[])
         desktopPage[i] = new DesktopPage(QString::number(i));
         desktopPage[i]->addApplication(new Application(":/application/icons/video-player.png", "video", videoClickedFunc));
         desktopPage[i]->addApplication(new Application(":/application/icons/brightness-control.png", "blight", lightClickedFunc));
-        desktopPage[i]->addApplication(new Application(":/application/icons/temp-and-humidity.png", "t&h", videoClickedFunc));
-        desktopPage[i]->addApplication(new Application(":/application/icons/light-control.png", "light", lightClickedFunc));
+        desktopPage[i]->addApplication(new Application(":/application/icons/temp-and-humidity.png", "t&h", tempAndHumidityClickedFunc));
+        desktopPage[i]->addApplication(new Application(":/application/icons/light-control.png", "light", lightControlClickedFunc));
         w.addDesktopPage(desktopPage[i]);
     }
 

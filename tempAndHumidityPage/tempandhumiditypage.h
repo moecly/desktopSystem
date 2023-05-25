@@ -5,6 +5,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <utils/common.h>
+#include <QPushButton>
 
 class TempAndHumidityPage : public QWidget
 {
@@ -13,16 +15,27 @@ public:
     explicit TempAndHumidityPage(QWidget *parent = nullptr);
 
 private:
-    QLabel *tempName;
-    QLabel *tempValue;
-    QLabel *humidityName;
-    QLabel *humidityValue;
-    QHBoxLayout *mainHBoxLayout;
+    QLabel *tempNameLabel;
+    QLabel *tempValueLabel;
+    QVBoxLayout *tempVBoxLayout;
+    QWidget *tempWidget;
+    QLabel *humidityNameLabel;
+    QLabel *humidityValueLabel;
+    QWidget *humidityWidget;
+    QVBoxLayout *humidityVBoxLayout;
+    QHBoxLayout *hBoxLayout;
+    QWidget *hWidget;
     QWidget *mainWidget;
+    QVBoxLayout *mainVBoxLayout;
+    QPushButton *exitPushButton;
 
+    void layoutInit();
+    void paintEvent(QPaintEvent *event);
+    void signalAndSlotInit();
 signals:
 
 public slots:
+    void exitPushButtonClick();
 };
 
 #endif // TEMPANDHUMIDITYPAGE_H
