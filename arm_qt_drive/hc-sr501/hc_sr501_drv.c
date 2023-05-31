@@ -1,5 +1,6 @@
 #include "asm-generic/fcntl.h"
 #include "asm-generic/gpio.h"
+#include "asm-generic/poll.h"
 #include "asm/delay.h"
 #include "asm/gpio.h"
 #include "asm/uaccess.h"
@@ -47,14 +48,19 @@ static hc_sr501_data hc_sr501;
 static int major;
 static struct class *hc_sr501_class;
 static DECLARE_WAIT_QUEUE_HEAD(hc_sr501_wait);
+static struct fasync_struct *hc_sr501_fasync_struct;
 
 static ssize_t hc_sr501_read(struct file *file, char __user *buf, size_t size, loff_t *ppos) {
     int ret = 0;
-    if (hc_sr501.value == 0 && file->f_flags & O_NONBLOCK) {
-        return 0;
+    if (file->f_flags & O_NONBLOCK) {
+        hc_sr501.value = hc_sr501.gpio << 16;
+        hc_sr501.value |= gpiod_get_value(hc_sr501.gpiod);
     }
     
-    wait_event_interruptible(hc_sr501_wait, hc_sr501.value);
+    if (!(file->f_flags & O_NONBLOCK)) {
+        wait_event_interruptible(hc_sr501_wait, hc_sr501.value);
+    }
+
     ret = copy_to_user(buf, &hc_sr501.value, 4);
     hc_sr501.value = 0;
     return 4;
@@ -76,7 +82,8 @@ static int hc_sr501_release(struct inode *node, struct file *file) {
 }
 
 static int hc_sr501_fasync(int fd, struct file *file, int on) {
-    return 0;
+    printk("%s %s %d\n", __FILE__, __FUNCTION__, __LINE__);
+    return fasync_helper(fd, file, on, &hc_sr501_fasync_struct);
 }
 
 static struct file_operations hc_sr501_fops = {
@@ -95,6 +102,7 @@ static irqreturn_t hc_sr501_thread_irq_handle(int irq, void *data) {
     wake_up_interruptible(&hc_sr501_wait);
     value = gpiod_get_value(hc_sr501.gpiod);
     hc_sr501.value |= value;
+	kill_fasync(&hc_sr501_fasync_struct, SIGIO, POLLIN);
     return IRQ_HANDLED;
 }
 

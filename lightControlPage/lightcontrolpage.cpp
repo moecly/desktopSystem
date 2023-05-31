@@ -13,10 +13,10 @@ LightControlPage::LightControlPage(QWidget *parent) : QWidget(parent)
 
 void LightControlPage::signalAndSlotInit() {
     connect(controlLightPushButton, SIGNAL(clicked()), this, SLOT(controlLight()));
-    connect(exitPushButton, SIGNAL(clicked()), this, SLOT(exitPushButtonClick()));
+    connect(exitPushButton, SIGNAL(clicked()), this, SLOT(exitPushButtonClicked()));
 }
 
-void LightControlPage::exitPushButtonClick() {
+void LightControlPage::exitPushButtonClicked() {
     this->close();
 }
 

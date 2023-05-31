@@ -66,5 +66,6 @@
         <file>videoPlayerPage/icons/btn_back2.png</file>
         <file>application/icons/light-control.png</file>
         <file>application/icons/temp-and-humidity.png</file>
+        <file>application/icons/person-check.png</file>
     </qresource>
 </RCC>

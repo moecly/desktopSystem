@@ -13,7 +13,7 @@ class LightControl
 {
 public:
     LightControl();
-    int setDevFileName(QString devFlleName);
+    int setDevFileName(QString devFileName);
     int getLightStatus(char *status);
     int setLightStatus(char status);
 private:

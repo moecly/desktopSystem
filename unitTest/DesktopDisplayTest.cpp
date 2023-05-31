@@ -5,6 +5,7 @@
 #include <videoPlayerPage/videoplayerpage.h>
 #include <tempAndHumidityPage/tempandhumiditypage.h>
 #include <lightControlPage/lightcontrolpage.h>
+#include <personCheckPage/personcheckpage.h>
 
 #if 1
 
@@ -12,6 +13,12 @@ static DesktopSystem *desktopSystem;
 
 void lightClickedFunc() {
     BrightnessControlPage *w = new BrightnessControlPage();
+    w->setGeometry(desktopSystem->geometry());
+    w->show();
+}
+
+void personCheckClickedFunc() {
+    PersonCheckPage *w = new PersonCheckPage();
     w->setGeometry(desktopSystem->geometry());
     w->show();
 }
@@ -55,6 +62,7 @@ int main(int argc, char *argv[])
         desktopPage[i]->addApplication(new Application(":/application/icons/brightness-control.png", "blight", lightClickedFunc));
         desktopPage[i]->addApplication(new Application(":/application/icons/temp-and-humidity.png", "t&h", tempAndHumidityClickedFunc));
         desktopPage[i]->addApplication(new Application(":/application/icons/light-control.png", "light", lightControlClickedFunc));
+        desktopPage[i]->addApplication(new Application(":/application/icons/person-check.png", "Person", personCheckClickedFunc));
         w.addDesktopPage(desktopPage[i]);
     }
 

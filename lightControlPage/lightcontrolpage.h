@@ -32,7 +32,7 @@ signals:
 
 public slots:
     void controlLight();
-    void exitPushButtonClick();
+    void exitPushButtonClicked();
 };
 
 #endif // LIGHTCONTROLPAGE_H
