@@ -10,7 +10,7 @@ PersonCheckPage::PersonCheckPage(QWidget *parent) : QWidget(parent)
 void PersonCheckPage::devInit() {
     hc_sr501 = new Hc_Sr501();
     timer = new QTimer(this);
-    timer->start(200);
+    timer->start(1000);
 }
 
 void PersonCheckPage::layoutInit() {
@@ -61,7 +61,6 @@ void PersonCheckPage::timerTimeout() {
     unsigned int value = 0;
     ret = hc_sr501->getDevState(&value);
 
-    qDebug() << "value = " << value;
     if (ret) {
         stateLabel->setText("dev err!");
         return;
